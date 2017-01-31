@@ -1,0 +1,919 @@
+<!-- INCLUDE overall_header.html -->
+<!--**
+*
+* @package - Red Blinking PM MOD
+* @version $Id$
+* @file				acp_rbpm.html
+* @copyright (c) 2011-2012 all4phone (http://phpbbmods.cba.pl/)
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+*
+*/-->
+<fieldset>
+<a name="maincontent"></a>
+<h1>{L_ACP_RBPM_TITLE}</h1>
+<p>{L_ACP_RBPM_CONFIG_EXPLAIN}</p>
+
+<!-- IF S_WARNING -->
+	<div class="errorbox">
+		<h3>{L_WARNING}</h3>
+		<p>{WARNING_MSG}</p>
+	</div>
+<!-- ENDIF -->
+<form id="acp_rbpm" method="post" action="{U_ACTION}">
+<ol id="toc">
+    <li><a href="#page-1"><span>{L_ACP_RBPM_MAIN_CONFIG}</span></a></li>
+    <li><a href="#page-2"><span>{L_ACP_RBPM_TAB_COLOR}</span></a></li>
+    <li><a href="#page-3"><span>{L_ACP_RBPM_TAB_FONT}</span></a></li>
+    <li><a href="#page-4"><span>{L_ACP_RBPM_TAB_TEXT}</span></a></li>
+    <li><a href="#page-5"><span>{L_ACP_RBPM_TAB_BB}</span></a></li>
+</ol>
+<!--//////////////////////////////// MAIN BEGIN /////////////////////////////////////////////////-->
+<div class="content" id="page-1">
+<!--//////////////////////////////// VERSION MOD BEGIN //////////////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_ver">{L_ACP_RBPM_VERSION}:</label>
+	</dt>
+		<dd>
+			<a class="prompt" href="#">
+				<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+					<div>{L_HELP_RBPM_VERSION_EXPLAIN}
+						<div class="top">{L_HELP_TITLE}</div>
+						<div class="top2">{L_ACP_RBPM_VERSION}</div>
+					</div>
+			</a>
+			<span class="ver">{RBPM_VERSION}</span></dd>
+</dl>
+<!--//////////////////////////////// VERSION MOD END ////////////////////////////////////////////-->
+<hr />
+<!--//////////////////////////////// ENABLE BLINKING PM BEGIN ///////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_enable">{L_ACP_RBPM_ENABLE}:</label>
+	</dt>
+		<dd>
+			<a class="prompt" href="#">
+				<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+					<div>{L_HELP_RBPM_ENABLE_EXPLAIN}
+						<div class="top">{L_HELP_TITLE}</div>
+						<div class="top2">{L_ACP_RBPM_ENABLE}</div>
+					</div>
+			</a>
+			<label>
+				<input class="inprad" type="radio" class="radio" id="rbpm_enable" name="rbpm_enable" value="1"<!-- IF RBPM_ENABLE --> checked="checked"<!-- ENDIF --> /> <!-- IF RBPM_ENABLE --><strong style="color:#008000">{L_YES}</strong><!-- ELSE -->{L_YES}<!-- ENDIF -->
+			</label>
+			<label>
+				<input type="radio" class="radio" name="rbpm_enable" value="0"<!-- IF not RBPM_ENABLE --> checked="checked"<!-- ENDIF --> /> <!-- IF not RBPM_ENABLE --><strong style="color:#ff0000">{L_NO}</strong><!-- ELSE -->{L_NO}<!-- ENDIF -->
+			</label>
+		</dd>
+</dl>
+<!--//////////////////////////////// ENABLE BLINKING END ////////////////////////////////////////-->
+<!--//////////////////////////////// ENABLE BLINKING INSCRIPTION BEGIN //////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_insc_enable">{L_ACP_RBPM_INSC_ENABLE}:</label>
+	</dt>
+		<dd>
+			<a class="prompt" href="#">
+				<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+					<div>{L_HELP_RBPM_INSC_ENABLE_EXPLAIN}
+						<div class="top">{L_HELP_TITLE}</div>
+						<div class="top2">{L_ACP_RBPM_INSC_ENABLE}</div>
+					</div>
+			</a>
+			<label>
+				<input class="inprad" type="radio" class="radio" id="rbpm_insc_enable" name="rbpm_insc_enable" value="1"<!-- IF RBPM_INSC_ENABLE --> checked="checked"<!-- ENDIF --> /> <!-- IF RBPM_INSC_ENABLE --><strong style="color:#008000">{L_YES}</strong><!-- ELSE -->{L_YES}<!-- ENDIF --></label>
+			<label>
+				<input type="radio" class="radio" name="rbpm_insc_enable" value="0"<!-- IF not RBPM_INSC_ENABLE --> checked="checked"<!-- ENDIF --> /> <!-- IF not RBPM_INSC_ENABLE --><strong style="color:#ff0000">{L_NO}</strong><!-- ELSE -->{L_NO}<!-- ENDIF -->
+			</label>
+		</dd>
+</dl>
+<!--//////////////////////////////// ENABLE BLINKING INSCRIPTION END ////////////////////////////-->
+<!--//////////////////////////////// ENABLE BACKGROUND BEGIN ///////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_enable_background">{L_ACP_RBPM_ENABLE_BACKGROUND}:</label>
+	</dt>
+		<dd><!-- IF RBPM_ENABLE and RBPM_INSC_ENABLE -->
+			<a class="prompt" href="#">
+				<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+					<div>{L_HELP_RBPM_ENABLE_BACKGROUND_EXPLAIN}
+						<div class="top">{L_HELP_TITLE}</div>
+						<div class="top2">{L_ACP_RBPM_ENABLE_BACKGROUND}</div>
+					</div>
+			</a>
+			<label>
+				<input class="inprad" type="radio" class="radio" id="rbpm_enable_background" name="rbpm_enable_background" value="1"<!-- IF RBPM_ENABLE_BACKGROUND --> checked="checked"<!-- ENDIF --> /> <!-- IF RBPM_ENABLE_BACKGROUND --><strong style="color:#008000">{L_YES}</strong><!-- ELSE -->{L_YES}<!-- ENDIF -->
+			</label>
+			<label>
+				<input type="radio" class="radio" name="rbpm_enable_background" value="0"<!-- IF not RBPM_ENABLE_BACKGROUND --> checked="checked"<!-- ENDIF --> /> <!-- IF not RBPM_ENABLE_BACKGROUND --><strong style="color:#ff0000">{L_NO}</strong><!-- ELSE -->{L_NO}<!-- ENDIF -->
+			</label>
+			<!-- ELSE --><a class="prompt" href="#">
+					<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_ENABLE_BACKGROUND_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_ENABLE_BACKGROUND}</div>
+						</div>
+				</a><!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// ENABLE BACKGROUND END ////////////////////////////////////////-->
+<!--//////////////////////////////// ENABLE UNREAD BEGIN ///////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_enable_unread">{L_ACP_RBPM_ENABLE_UNREAD}:</label>
+	</dt>
+		<dd>
+			<a class="prompt" href="#">
+				<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+					<div>{L_HELP_RBPM_ENABLE_UNREAD_EXPLAIN}
+						<div class="top">{L_HELP_TITLE}</div>
+						<div class="top2">{L_ACP_RBPM_ENABLE_UNREAD}</div>
+					</div>
+			</a>
+			<label>
+				<input class="inprad" type="radio" class="radio" id="rbpm_enable_unread" name="rbpm_enable_unread" value="1"<!-- IF RBPM_ENABLE_UNREAD --> checked="checked"<!-- ENDIF --> /> <!-- IF RBPM_ENABLE_UNREAD --><strong style="color:#008000">{L_YES}</strong><!-- ELSE -->{L_YES}<!-- ENDIF -->
+			</label>
+			<label>
+				<input type="radio" class="radio" name="rbpm_enable_unread" value="0"<!-- IF not RBPM_ENABLE_UNREAD --> checked="checked"<!-- ENDIF --> /> <!-- IF not RBPM_ENABLE_UNREAD --><strong style="color:#ff0000">{L_NO}</strong><!-- ELSE -->{L_NO}<!-- ENDIF -->
+			</label>
+		</dd>
+</dl>
+<!--//////////////////////////////// ENABLE UNREAD END ////////////////////////////////////////-->
+<!--//////////////////////////////// ENABLE UNREAD BLINKING BEGIN ///////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_enable_unread_blink">{L_ACP_RBPM_ENABLE_UNREAD_BLINK}:</label>
+	</dt>
+		<dd><!-- IF RBPM_ENABLE_UNREAD -->
+			<a class="prompt" href="#">
+				<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+					<div>{L_HELP_RBPM_ENABLE_UNREAD_BLINK_EXPLAIN}
+						<div class="top">{L_HELP_TITLE}</div>
+						<div class="top2">{L_ACP_RBPM_ENABLE_UNREAD_BLINK}</div>
+					</div>
+			</a>
+			<label>
+				<input class="inprad" type="radio" class="radio" id="rbpm_enable_unread_blink" name="rbpm_enable_unread_blink" value="1"<!-- IF RBPM_ENABLE_UNREAD_BLINK --> checked="checked"<!-- ENDIF --> /> <!-- IF RBPM_ENABLE_UNREAD_BLINK --><strong style="color:#008000">{L_YES}</strong><!-- ELSE -->{L_YES}<!-- ENDIF -->
+			</label>
+			<label>
+				<input type="radio" class="radio" name="rbpm_enable_unread_blink" value="0"<!-- IF not RBPM_ENABLE_UNREAD_BLINK --> checked="checked"<!-- ENDIF --> /> <!-- IF not RBPM_ENABLE_UNREAD_BLINK --><strong style="color:#ff0000">{L_NO}</strong><!-- ELSE -->{L_NO}<!-- ENDIF -->
+			</label>
+			<!-- ELSE --><a class="prompt" href="#">
+					<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_ENABLE_UNREAD_BLINK_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_ENABLE_UNREAD_BLINK}</div>
+						</div>
+				</a><!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// ENABLE UNREAD BLINKING END ////////////////////////////////////////-->
+</div>
+<!--//////////////////////////////// MAIN END ///////////////////////////////////////////////////////-->
+<!--//////////////////////////////// COLOR BEGIN ////////////////////////////////////////////////////-->
+<div class="content" id="page-2">
+<!--//////////////////////////////// COLOR PM BEGIN /////////////////////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_color">{L_ACP_RBPM_COLOR}:</label>
+			<!-- IF RBPM_ENABLE --><div class="enabled">{L_ACP_ENABLED}</div><!-- ELSE --><div class="disabled">{L_ACP_DISABLED}</div><!-- ENDIF -->
+	</dt>
+		<dd><!-- IF RBPM_ENABLE -->
+				<a class="prompt" href="#">
+					<img class="icocol" alt="{L_ACP_HELP}" src="./images/help.png" />
+						<div>{L_HELP_RBPM_COLOR_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_COLOR}</div>
+						</div>
+				</a>
+				<input name="rbpm_color" id="rbpm_color" class="color {valueElement:'myValue1'}" maxlength="6" value="{L_ACP_CP}" />
+				<img class="icoed" alt="{L_ACP_EDIT}" title="{L_ACP_TEDIT}" src="./images/icon_edit2.png" />
+				<input class="roloc" id="myValue1" name="rbpm_color" type="text" value="{RBPM_COLOR}" size="8" maxlength="6" />
+			<!-- ELSE -->
+				<a class="prompt" href="#">
+					<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_COLOR_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_COLOR}</div>
+						</div>
+				</a><!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// COLOR PM END ///////////////////////////////////////////////-->
+<!--//////////////////////////////// COLOR INSCRIPTION BEGIN ////////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_insc_color">{L_ACP_RBPM_INSC_COLOR}:</label>
+			<!-- IF RBPM_INSC_ENABLE --><div class="enabled">{L_ACP_ENABLED}</div><!-- ELSE --><div class="disabled">{L_ACP_DISABLED}</div><!-- ENDIF -->
+	</dt>
+		<dd><!-- IF RBPM_INSC_ENABLE -->
+				<a class="prompt" href="#">
+					<img class="icocol" alt="{L_ACP_HELP}" src="./images/help.png" />
+						<div>{L_HELP_RBPM_INSC_COLOR_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_INSC_COLOR}</div>
+						</div>
+				</a>
+				<input name="rbpm_insc_color" id="rbpm_insc_color" class="color {valueElement:'myValue2'}" maxlength="6" value="{L_ACP_CP}" />
+				<img class="icoed" alt="{L_ACP_EDIT}" title="{L_ACP_TEDIT}" src="./images/icon_edit2.png" />
+				<input class="roloc" id="myValue2" name="rbpm_insc_color" type="text" value="{RBPM_INSC_COLOR}" size="8" maxlength="6" />
+			<!-- ELSE -->
+				<a class="prompt" href="#">
+					<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_INSC_COLOR_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_INSC_COLOR}</div>
+						</div>
+				</a><!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// COLOR INSCRIPTION END //////////////////////////////////////-->
+<!--//////////////////////////////// COLOR UNREAD BEGIN ////////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_unread_color">{L_ACP_RBPM_UNREAD_COLOR}:</label>
+			<!-- IF RBPM_ENABLE_UNREAD --><div class="enabled">{L_ACP_ENABLED}</div><!-- ELSE --><div class="disabled">{L_ACP_DISABLED}</div><!-- ENDIF -->
+	</dt>
+		<dd><!-- IF RBPM_ENABLE_UNREAD -->
+				<a class="prompt" href="#">
+					<img class="icocol" alt="{L_ACP_HELP}" src="./images/help.png" />
+						<div>{L_HELP_RBPM_UNREAD_COLOR_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_UNREAD_COLOR}</div>
+						</div>
+				</a>
+				<input name="rbpm_unread_color" id="rbpm_unread_color" class="color {valueElement:'myValue3'}" maxlength="6" value="{L_ACP_CP}" />
+				<img class="icoed" alt="{L_ACP_EDIT}" title="{L_ACP_TEDIT}" src="./images/icon_edit2.png" />
+				<input class="roloc" id="myValue3" name="rbpm_unread_color" type="text" value="{RBPM_UNREAD_COLOR}" size="8" maxlength="6" />
+			<!-- ELSE -->
+				<a class="prompt" href="#">
+					<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_UNREAD_COLOR_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_UNREAD_COLOR}</div>
+						</div>
+				</a><!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// COLOR UNREAD END //////////////////////////////////////-->
+<!--//////////////////////////////// COLOUR SHADOW PM BEGIN /////////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_shadow_colour">{L_ACP_RBPM_SHADOW_COLOUR}:</label>
+			<!-- IF not RBPM_ENABLE --><div class="disabled">{L_ACP_DISABLED}</div><!-- ELSE --><div class="enabled">{L_ACP_ENABLED}</div><!-- ENDIF -->
+	</dt>
+		<dd><!-- IF RBPM_ENABLE -->
+			<a class="prompt" href="#">
+				<img class="icocol" alt="{L_ACP_HELP}" src="./images/help.png"/>
+					<div>{L_HELP_RBPM_SHADOW_COLOUR_EXPLAIN}
+						<div class="top">{L_HELP_TITLE}</div>
+						<div class="top2">{L_ACP_RBPM_SHADOW_COLOUR}</div>
+					</div>
+			</a>
+				<input name="rbpm_shadow_colour" id="rbpm_shadow_colour" class="color {valueElement:'myValue4'}" maxlength="6" value="{L_ACP_CP}" />
+				<img class="icoed" alt="{L_ACP_EDIT}" title="{L_ACP_TEDIT}" src="./images/icon_edit2.png" />
+				<input class="roloc" id="myValue4" name="rbpm_shadow_colour" type="text" value="{RBPM_SHADOW_COLOUR}" size="8" maxlength="6" />
+				<!-- ELSE -->
+							<a class="prompt" href="#">
+								<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+									<div>{L_HELP_RBPM_NO_SHADOW_COLOUR_EXPLAIN}
+										<div class="top">{L_HELP_TITLE}</div>
+										<div class="top2">{L_ACP_RBPM_SHADOW_COLOUR}</div>
+									</div>
+								</a>
+						<!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// COLOUR SHADOW/BLUR PM END /////////////////////////////////////-->
+<!--//////////////////////////////// COLOUR SHADOW/BLUR TEXT BEGIN /////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_insc_shadow_colour">{L_ACP_RBPM_INSC_SHADOW_COLOUR}:</label>
+			<!-- IF not RBPM_INSC_ENABLE --><div class="disabled">{L_ACP_DISABLED}</div><!-- ELSE --><div class="enabled">{L_ACP_ENABLED}</div><!-- ENDIF -->
+	</dt>
+		<dd><!-- IF RBPM_INSC_ENABLE -->
+			<a class="prompt" href="#">
+				<img class="icocol" alt="{L_ACP_HELP}" src="./images/help.png" />
+					<div>{L_HELP_RBPM_INSC_SHADOW_COLOUR_EXPLAIN}
+						<div class="top">{L_HELP_TITLE}</div>
+						<div class="top2">{L_ACP_RBPM_INSC_SHADOW_COLOUR}</div>
+					</div>
+			</a>
+				<input name="rbpm_insc_shadow_colour" id="rbpm_insc_shadow_colour" class="color {valueElement:'myValue5'}" maxlength="6" value="{L_ACP_CP}" />
+				<img class="icoed" alt="{L_ACP_EDIT}" title="{L_ACP_TEDIT}" src="./images/icon_edit2.png" />
+				<input class="roloc" id="myValue5" name="rbpm_insc_shadow_colour" type="text" value="{RBPM_INSC_SHADOW_COLOUR}" size="8" maxlength="6" />
+						<!-- ELSE -->
+							<a class="prompt" href="#">
+								<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+									<div>{L_HELP_RBPM_NO_INSC_SHADOW_COLOUR_EXPLAIN}
+										<div class="top">{L_HELP_TITLE}</div>
+										<div class="top2">{L_ACP_RBPM_INSC_SHADOW_COLOUR}</div>
+									</div>
+								</a>
+						<!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// COLOUR SHADOW/BLUR TEXT END ///////////////////////////////////-->
+</div>
+<!--//////////////////////////////// FONT BEGIN ////////////////////////////////////////////////////-->
+<div class="content" id="page-3">
+<!--//////////////////////////////// SET STYLE (ITALIC) BEGIN //////////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_italic">{L_ACP_RBPM_ITALIC}:</label>
+				<!-- IF RBPM_NORMAL_STYLE --><div class="disabled">{L_ACP_DISABLED}</div><!-- ELSE -->
+				<!-- IF not RBPM_INSC_ENABLE and not RBPM_ENABLE--><div class="disabled">{L_ACP_DISABLED}</div>
+				<!-- ELSE --><div class="enabled">{L_ACP_ENABLED}</div><!-- ENDIF --><!-- ENDIF -->
+	</dt>
+		<dd><!-- IF  not RBPM_ENABLE and not RBPM_INSC_ENABLE -->
+				<a class="prompt" href="#">
+					<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_ITALIC_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_ITALIC}</div>
+						</div>
+				</a>
+			<!-- ELSE -->
+				<a class="prompt" href="#">
+					<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+						<div>{L_HELP_RBPM_ITALIC_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_ITALIC}</div>
+						</div>
+				</a>
+					<label>
+						<input class="inprad" type="radio" class="radio" id="rbpm_italic" name="rbpm_italic" value="italic"<!-- IF RBPM_ITALIC_STYLE -->checked="checked"<!-- ENDIF --> /> {L_ACP_ITALIC}
+					</label>
+					<label>
+						<input style="margin-left:40px" type="radio" class="radio" id="rbpm_italic" name="rbpm_italic" value="normal"<!-- IF RBPM_NORMAL_STYLE --> checked="checked"<!-- ENDIF --> /> {L_ACP_DEFAULT}
+					</label>
+			<!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// SET STYLE (ITALIC) END /////////////////////////////////////-->
+<!--//////////////////////////////// SET VARIANT BEGIN //////////////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_variant">{L_ACP_RBPM_VARIANT}:</label>
+				<!-- IF RBPM_NORMAL_VARIANT_STYLE --><div class="disabled">{L_ACP_DISABLED}</div><!-- ELSE -->
+				<!-- IF not RBPM_INSC_ENABLE --><div class="disabled">{L_ACP_DISABLED}</div>
+				<!-- ELSE --><div class="enabled">{L_ACP_ENABLED}</div><!-- ENDIF --><!-- ENDIF -->
+	</dt>
+		<dd><!-- IF not RBPM_INSC_ENABLE -->
+			<a class="prompt" href="#">
+				<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_VARIANT_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_VARIANT}</div>
+						</div>
+			</a>
+			<!-- ELSE -->
+			<a class="prompt" href="#">
+					<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+						<div>{L_HELP_RBPM_VARIANT_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_VARIANT}</div>
+						</div>
+			</a>
+				<label>
+					<input class="inprad" type="radio" class="radio" id="rbpm_variant" name="rbpm_variant" value="small-caps"<!-- IF RBPM_VARIANT_STYLE -->checked="checked"<!-- ENDIF --> /> {L_ACP_VARIANT}
+				</label>
+				<label>
+					<input style="margin-left:5px" type="radio" class="radio" id="rbpm_variant" name="rbpm_variant" value="normal"<!-- IF RBPM_NORMAL_VARIANT_STYLE --> checked="checked"<!-- ENDIF --> /> {L_ACP_DEFAULT}
+				</label>
+						<!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// SET VARIANT END ////////////////////////////////////////////-->
+<!--//////////////////////////////// SET WEIGHT (BOLD) BEGIN ////////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_bold">{L_ACP_RBPM_BOLD}:</label>
+					<!-- IF RBPM_NONE_STYLE --><div class="disabled">{L_ACP_DISABLED}</div><!-- ELSE -->
+				<!-- IF not RBPM_INSC_ENABLE and not RBPM_ENABLE--><div class="disabled">{L_ACP_DISABLED}</div>
+				<!-- ELSE --><div class="enabled">{L_ACP_ENABLED}</div><!-- ENDIF --><!-- ENDIF -->
+	</dt>
+		<dd><!-- IF  not RBPM_ENABLE and not RBPM_INSC_ENABLE -->
+				<a class="prompt" href="#">
+					<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_BOLD_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_BOLD}</div>
+						</div>
+				</a>
+			<!-- ELSE -->
+				<a class="prompt" href="#">
+					<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+						<div>{L_HELP_RBPM_BOLD_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_BOLD}</div>
+						</div>
+				</a>
+				<label>
+					<input class="inprad" type="radio" class="radio" id="rbpm_bold" name="rbpm_bold" value="bold"<!-- IF RBPM_BOLD_STYLE -->checked="checked"<!-- ENDIF --> /> {L_ACP_BOLD}
+				</label>
+				<label>
+					<input   style="margin-left:42px" type="radio" class="radio" id="rbpm_bold" name="rbpm_bold" value="none"<!-- IF RBPM_NONE_STYLE -->checked="checked"<!-- ENDIF --> /> {L_ACP_DEFAULT}
+				</label>
+			<!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// SET WEIGHT (BOLD) END //////////////////////////////////////-->
+<!--//////////////////////////////// SET SIZE BEGIN /////////////////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_size">{L_ACP_RBPM_SIZE}:</label>
+			<!-- IF not RBPM_INSC_ENABLE and not RBPM_ENABLE--><div class="disabled">{L_ACP_DISABLED}</div>
+				<!-- ELSE --><div class="enabled">{L_ACP_ENABLED}</div><!-- ENDIF -->
+	</dt>
+		<dd><!-- IF not RBPM_ENABLE and not RBPM_INSC_ENABLE -->
+				<a class="prompt" href="#">
+					<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_SIZE_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_SIZE}</div>
+						</div>
+				</a>
+			<!-- ELSE -->
+			<a class="prompt" href="#">
+				<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+					<div>{L_HELP_RBPM_SIZE_EXPLAIN}
+						<div class="top">{L_HELP_TITLE}</div>
+						<div class="top2">{L_ACP_RBPM_SIZE}</div>
+					</div>
+			</a>
+				<span class="inpsel">{RBPM_SIZE}</span>
+			<!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// SET SIZE END ///////////////////////////////////////////////-->
+<!--//////////////////////////////// SET FAMILY BEGIN ///////////////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_family">{L_ACP_RBPM_FAMILY}:</label>
+			<!-- IF not RBPM_INSC_ENABLE and not RBPM_ENABLE--><div class="disabled">{L_ACP_DISABLED}</div>
+				<!-- ELSE --><div class="enabled">{L_ACP_ENABLED}</div><!-- ENDIF -->
+	</dt>
+		<dd><!-- IF  not RBPM_ENABLE and not RBPM_INSC_ENABLE -->
+				<a class="prompt" href="#">
+					<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_FAMILY_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_FAMILY}</div>
+						</div>
+				</a>
+			<!-- ELSE -->
+			<a class="prompt" href="#">
+				<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+					<div>{L_HELP_RBPM_FAMILY_EXPLAIN}
+						<div class="top">{L_HELP_TITLE}</div>
+						<div class="top2">{L_ACP_RBPM_FAMILY}</div>
+					</div>
+			</a>
+				<span class="inpsel">{RBPM_FAMILY}</span>
+			<!-- ENDIF -->
+		</dd>
+
+</dl>
+<!--//////////////////////////////// SET FAMILY END /////////////////////////////////////////////-->
+</div>
+<!--//////////////////////////////// FONT END ////////////////////////////////////////////////////-->
+<!--//////////////////////////////// TEXT BEGIN //////////////////////////////////////////////////-->
+<div class="content" id="page-4">
+<!--//////////////////////////////// SET TEXT TRANSFORM BEGIN ///////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_transform">{L_ACP_RBPM_TRANSFORM}:</label>
+				<!-- IF not RBPM_INSC_ENABLE or RBPM_VARIANT_STYLE --><div class="disabled">{L_ACP_DISABLED}</div>
+			<!-- ELSE --><div class="enabled">{L_ACP_ENABLED}</div><!-- ENDIF -->
+	</dt>
+		
+		<dd>
+			<!-- IF not RBPM_INSC_ENABLE or RBPM_VARIANT_STYLE -->
+				<a class="prompt" href="#">
+					<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_TRANSFORM_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_TRANSFORM}</div>
+						</div>
+				</a>
+			<!-- ELSE -->
+				<a class="prompt" href="#">
+					<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+						<div>{L_HELP_RBPM_TRANSFORM_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_TRANSFORM}</div>
+						</div>
+				</a>
+					<span class="inpsel">
+						<select class="inputbox" id="rbpm_transform" name="rbpm_transform">
+							<option class="inputbox2" value="none" <!-- IF RBPM_TRANSFORM == 'none' -->selected="selected"<!-- ENDIF -->>{L_ACP_RBPM_TRANSFORM_0}</option>
+							<option class="inputbox2" value="lowercase" <!-- IF RBPM_TRANSFORM == 'lowercase' -->selected="selected"<!-- ENDIF -->>{L_ACP_RBPM_TRANSFORM_1}</option>
+							<option class="inputbox2" value="capitalize" <!-- IF RBPM_TRANSFORM == 'capitalize' -->selected="selected"<!-- ENDIF -->>{L_ACP_RBPM_TRANSFORM_2}</option>
+							<option class="inputbox2" value="uppercase" <!-- IF RBPM_TRANSFORM == 'uppercase' -->selected="selected"<!-- ENDIF -->>{L_ACP_RBPM_TRANSFORM_3}</option>
+						</select>
+					</span>
+			<!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// SET TEXT TRANSFORM END /////////////////////////////////////-->
+<!--//////////////////////////////// SET TEXT DECORATION BEGIN //////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_transform">{L_ACP_RBPM_DECORATION}:</label>
+			<!-- IF not RBPM_ENABLE and not RBPM_INSC_ENABLE --><div class="disabled">{L_ACP_DISABLED}</div><!-- ELSE --><div class="enabled">{L_ACP_ENABLED}</div><!-- ENDIF -->
+	</dt>
+		
+		<dd>
+			<!-- IF not RBPM_ENABLE and not RBPM_INSC_ENABLE -->
+				<a class="prompt" href="#">
+					<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_DECORATION_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_DECORATION}</div>
+						</div>
+				</a>
+			<!-- ELSE -->
+				<a class="prompt" href="#">
+					<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+						<div>{L_HELP_RBPM_DECORATION_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_DECORATION}</div>
+						</div>
+				</a>
+					<span class="inpsel">
+						<select class="inputbox" id="rbpm_decoration" name="rbpm_decoration">
+							<option class="inputbox2" value="none" <!-- IF RBPM_DECORATION == 'none' -->selected="selected"<!-- ENDIF -->>{L_ACP_RBPM_DECORATION_0}</option>
+							<option class="inputbox2" value="overline" <!-- IF RBPM_DECORATION == 'overline' -->selected="selected"<!-- ENDIF -->>{L_ACP_RBPM_DECORATION_1}</option>
+							<option class="inputbox2" value="underline" <!-- IF RBPM_DECORATION == 'underline' -->selected="selected"<!-- ENDIF -->>{L_ACP_RBPM_DECORATION_2}</option>
+							<option class="inputbox2" value="overline underline" <!-- IF RBPM_DECORATION == 'overline underline' -->selected="selected"<!-- ENDIF -->>{L_ACP_RBPM_DECORATION_3}</option>
+						</select>
+					</span>
+			<!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// SET TEXT DECORATION END ////////////////////////////////////-->
+<!--//////////////////////////////// SET HORIZONTAL SHADOW BEGIN ////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_shadowh">{L_ACP_RBPM_SHADOWH}:</label>
+			<!-- IF not RBPM_ENABLE and not RBPM_INSC_ENABLE --><div class="disabled">{L_ACP_DISABLED}</div><!-- ELSE --><div class="enabled">{L_ACP_ENABLED}</div><!-- ENDIF -->
+	</dt>
+		
+		<dd>
+		<!-- IF not RBPM_ENABLE and not RBPM_INSC_ENABLE -->
+				<a class="prompt" href="#">
+					<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_SHADOWH_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_SHADOWH}</div>
+						</div>
+				</a>
+			<!-- ELSE -->
+			<a class="prompt" href="#">
+				<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+					<div>{L_HELP_RBPM_SHADOWH_EXPLAIN}
+						<div class="top">{L_HELP_TITLE}</div>
+						<div class="top2">{L_ACP_RBPM_SHADOWH}</div>
+					</div>
+			</a>
+				<span class="inpsel">{RBPM_SHADOWH}</span>
+			<!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// SET HORIZONTAL SHADOW END //////////////////////////////////-->
+<!--//////////////////////////////// SET VERTICAL SHADOW BEGIN //////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_shadowv">{L_ACP_RBPM_SHADOWV}:</label>
+			<!-- IF not RBPM_ENABLE and not RBPM_INSC_ENABLE --><div class="disabled">{L_ACP_DISABLED}</div><!-- ELSE --><div class="enabled">{L_ACP_ENABLED}</div><!-- ENDIF -->
+	</dt>
+		
+		<dd>
+		<!-- IF not RBPM_ENABLE and not RBPM_INSC_ENABLE -->
+				<a class="prompt" href="#">
+					<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_SHADOWV_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_SHADOWV}</div>
+						</div>
+				</a>
+			<!-- ELSE -->
+				<a class="prompt" href="#">
+					<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+						<div>{L_HELP_RBPM_SHADOWV_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_SHADOWV}</div>
+						</div>
+				</a>
+					<span class="inpsel">{RBPM_SHADOWV}</span>
+			<!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// SET VERTICAL SHADOW END ////////////////////////////////////-->
+<!--//////////////////////////////// SET BLUR BEGIN /////////////////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_shadow_blur">{L_ACP_RBPM_SHADOW_BLUR}:</label>
+			<!-- IF not RBPM_ENABLE and not RBPM_INSC_ENABLE --><div class="disabled">{L_ACP_DISABLED}</div><!-- ELSE --><div class="enabled">{L_ACP_ENABLED}</div><!-- ENDIF -->
+	</dt>
+		
+		<dd>
+		<!-- IF not RBPM_ENABLE and not RBPM_INSC_ENABLE -->
+				<a class="prompt" href="#">
+					<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_SHADOW_BLUR_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_SHADOW_BLUR}</div>
+						</div>
+				</a>
+			<!-- ELSE -->
+				<a class="prompt" href="#">
+					<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+						<div>{L_HELP_RBPM_SHADOW_BLUR_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_SHADOW_BLUR}</div>
+						</div>
+				</a>
+					<span class="inpsel">{RBPM_SHADOW_BLUR}</span>
+			<!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// SET BLUR END ///////////////////////////////////////////////-->
+<!--//////////////////////////////// SET LETTER SPACING BEGIN ///////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_shadow">{L_ACP_RBPM_SPACING}:</label>
+			<!-- IF RBPM_INSC_ENABLE --><div class="enabled">{L_ACP_ENABLED}</div>
+			<!-- ELSE --><div class="disabled">{L_ACP_DISABLED}</div><!-- ENDIF -->
+	</dt>
+		
+		<dd>
+			<!-- IF RBPM_INSC_ENABLE -->
+				<a class="prompt" href="#">
+					<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+						<div>{L_HELP_RBPM_SPACING_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_SPACING}</div>
+						</div>
+				</a>
+					<span class="inpsel">{RBPM_SPACING}</span>
+			<!-- ELSE -->
+				<a class="prompt" href="#">
+					<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_SPACING_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_SPACING}</div>
+						</div>
+				</a>
+			<!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// SET LETTER SPACING END /////////////////////////////////////-->
+</div>
+<!--//////////////////////////////// TEXT END ///////////////////////////////////////////////////-->
+<!--//////////////////////////////// BACKGROUND/BORDER BEGIN ////////////////////////////////////-->
+<div class="content" id="page-5">
+<!--//////////////////////////////// BACKGROUND COLOUR BEGIN ////////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_background_colour">{L_ACP_RBPM_BACKGROUND_COLOUR}:</label>
+			<!-- IF RBPM_ENABLE and RBPM_INSC_ENABLE and RBPM_ENABLE_BACKGROUND --><div class="enabled">{L_ACP_ENABLED}</div><!-- ELSE --><div class="disabled">{L_ACP_DISABLED}</div><!-- ENDIF -->
+	</dt>
+		<dd><!-- IF RBPM_ENABLE and RBPM_INSC_ENABLE and RBPM_ENABLE_BACKGROUND -->
+				<a class="prompt" href="#">
+					<img class="icocol" alt="{L_ACP_HELP}" src="./images/help.png" />
+						<div>{L_HELP_RBPM_BACKGROUND_COLOUR_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_BACKGROUND_COLOUR}</div>
+						</div>
+				</a>
+				<input class="color {valueElement:'rbpm_background_colour'}" name="rbpm_background_colour" id="rbpm_background_colour" value="{RBPM_BACKGROUND_COLOUR}" onchange="
+	document.getElementById('rbpm_background_r').value = Math.round(this.color.rgb[0]*250);
+	document.getElementById('rbpm_background_g').value = Math.round(this.color.rgb[1]*250);
+	document.getElementById('rbpm_background_b').value = Math.round(this.color.rgb[2]*250);">
+				<img class="icoed" alt="{L_ACP_EDIT}" title="{L_ACP_TEDIT}" src="./images/icon_edit2.png" />
+				{L_ACP_R} <input id="rbpm_background_r" name="rbpm_background_r" class="roloc2" size="2" maxlength="3" value="{RBPM_BACKGROUND_R}" />  
+				{L_ACP_G} <input id="rbpm_background_g" name="rbpm_background_g" class="roloc2" size="2" maxlength="3" value="{RBPM_BACKGROUND_G}" />  
+				{L_ACP_B} <input id="rbpm_background_b" name="rbpm_background_b" class="roloc2" size="2" maxlength="3" value="{RBPM_BACKGROUND_B}" />
+						<!-- ELSE -->
+						<a class="prompt" href="#">
+							<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+								<div>{L_HELP_RBPM_NO_BACKGROUND_COLOUR_EXPLAIN}
+									<div class="top">{L_HELP_TITLE}</div>
+									<div class="top2">{L_ACP_RBPM_BACKGROUND_COLOUR}</div>
+								</div>
+						</a>
+						<!-- ENDIF -->
+		</dd>
+</dl>
+<!--/////////////////////////////////// BACKGROUND COLOUR END ///////////////////////////////////-->
+<!--/////////////////////////////////// BACKGROUND TRANSPARENCY BEGIN ///////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_background_transp">{L_ACP_RBPM_BACKGROUND_TRANSP}:</span>
+		</label>
+			<!-- IF RBPM_ENABLE and RBPM_INSC_ENABLE and RBPM_ENABLE_BACKGROUND --><div class="enabled">{L_ACP_ENABLED}</div><!-- ELSE --><div class="disabled">{L_ACP_DISABLED}</div><!-- ENDIF -->
+	</dt>
+		<dd>
+			<!-- IF RBPM_ENABLE and RBPM_INSC_ENABLE and RBPM_ENABLE_BACKGROUND -->
+			<a class="prompt" href="#">
+				<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+					<div>{L_HELP_RBPM_BACKGROUND_TRANSP_EXPLAIN}
+						<div class="top">{L_HELP_TITLE}</div>
+						<div class="top2">{L_ACP_RBPM_BACKGROUND_TRANSP}</div>
+					</div>
+			</a>
+				<span class="inpsel">{RBPM_BACKGROUND_TRANSP}</span>
+			<!-- ELSE -->
+				<a class="prompt" href="#">
+					<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_BACKGROUND_TRANSP_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_BACKGROUND_TRANSP}</div>
+						</div>
+				</a>
+			<!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// BACKGROUND TRANSPARENCY END ////////////////////////////////-->
+<hr />
+<!--//////////////////////////////// BORDER COLOUR BEGIN ////////////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_border_colour">{L_ACP_RBPM_BORDER_COLOUR}:</label>
+				<!-- IF RBPM_ENABLE and RBPM_INSC_ENABLE and RBPM_ENABLE_BACKGROUND --><div class="enabled">{L_ACP_ENABLED}</div><!-- ELSE --><div class="disabled">{L_ACP_DISABLED}</div><!-- ENDIF -->
+	</dt>
+		<dd><!-- IF RBPM_ENABLE and RBPM_INSC_ENABLE and RBPM_ENABLE_BACKGROUND -->
+				<a class="prompt" href="#">
+					<img class="icocol" alt="{L_ACP_HELP}" src="./images/help.png" />
+						<div>{L_HELP_RBPM_BORDER_COLOUR_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_BORDER_COLOUR}</div>
+						</div>
+				</a>
+				<!-- IF RBPM_ENABLE and RBPM_INSC_ENABLE -->
+				<input name="rbpm_border_colour" id="rbpm_border_colour" class="color {valueElement:'myValue6'}" maxlength="6" value="{L_ACP_CP}" />
+				<!-- ELSE -->
+						<input class="imptxt" name="rbpm_border_colour" type="text" id="rbpm_border_colour" value="none" size="8" maxlength="6" />
+					<!-- ENDIF -->
+				<img class="icoed" alt="{L_ACP_EDIT}" title="{L_ACP_TEDIT}" src="./images/icon_edit2.png" />
+				<input class="roloc" id="myValue6" name="rbpm_border_colour" type="text" value="{RBPM_BORDER_COLOUR}" size="8" maxlength="6" />
+					<!-- ELSE -->
+							<a class="prompt" href="#">
+								<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+									<div>{L_HELP_RBPM_NO_BORDER_COLOUR_EXPLAIN}
+										<div class="top">{L_HELP_TITLE}</div>
+										<div class="top2">{L_ACP_RBPM_BORDER_COLOUR}</div>
+									</div>
+							</a>
+					<!-- ENDIF -->
+		</dd>
+</dl>
+<!--/////////////////////////////////// BORDER COLOUR END ///////////////////////////////////////-->
+<!--//////////////////////////////// BORDER WIDTH BEGIN /////////////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_border_width">{L_ACP_RBPM_BORDER_WIDTH}:</label>
+				<!-- IF RBPM_ENABLE and RBPM_INSC_ENABLE and RBPM_ENABLE_BACKGROUND --><div class="enabled">{L_ACP_ENABLED}</div><!-- ELSE --><div class="disabled">{L_ACP_DISABLED}</div><!-- ENDIF -->
+	</dt>
+		<dd><!-- IF RBPM_ENABLE and RBPM_INSC_ENABLE and RBPM_ENABLE_BACKGROUND -->
+			<a class="prompt" href="#">
+				<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+					<div>{L_HELP_RBPM_BORDER_WIDTH_EXPLAIN}
+						<div class="top">{L_HELP_TITLE}</div>
+						<div class="top2">{L_ACP_RBPM_BORDER_WIDTH}</div>
+					</div>
+			</a>
+				<span class="inpsel">{RBPM_BORDER_WIDTH}</span>
+			<!-- ELSE -->
+				<a class="prompt" href="#">
+					<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_BORDER_WIDTH_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_BORDER_WIDTH}</div>
+						</div>
+				</a>
+			<!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// BORDER WIDTH END ///////////////////////////////////////////-->
+<!--//////////////////////////////// BORDER STYLE BEGIN /////////////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_border_style">{L_ACP_RBPM_BORDER_STYLE}:</label>
+				<!-- IF RBPM_ENABLE and RBPM_INSC_ENABLE and RBPM_ENABLE_BACKGROUND --><div class="enabled">{L_ACP_ENABLED}</div><!-- ELSE --><div class="disabled">{L_ACP_DISABLED}</div><!-- ENDIF -->
+	</dt>
+		<dd><!-- IF RBPM_ENABLE and RBPM_INSC_ENABLE and RBPM_ENABLE_BACKGROUND -->
+			<a class="prompt" href="#">
+				<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+					<div>{L_HELP_RBPM_BORDER_STYLE_EXPLAIN}
+						<div class="top">{L_HELP_TITLE}</div>
+						<div class="top2">{L_ACP_RBPM_BORDER_STYLE}</div>
+					</div>
+			</a>
+				<span class="inpsel">
+					<select class="inputbox" id="rbpm_border_style" name="rbpm_border_style">
+							<option class="inputbox2" value="none" <!-- IF RBPM_BORDER_STYLE == 'none' -->selected="selected"<!-- ENDIF -->>{L_ACP_RBPM_BORDER_STYLE_0}</option>
+							<option class="inputbox2" value="solid" <!-- IF RBPM_BORDER_STYLE == 'solid' -->selected="selected"<!-- ENDIF -->>{L_ACP_RBPM_BORDER_STYLE_1}</option>
+							<option class="inputbox2" value="dotted" <!-- IF RBPM_BORDER_STYLE == 'dotted' -->selected="selected"<!-- ENDIF -->>{L_ACP_RBPM_BORDER_STYLE_2}</option>
+							<option class="inputbox2" value="dashed" <!-- IF RBPM_BORDER_STYLE == 'dashed' -->selected="selected"<!-- ENDIF -->>{L_ACP_RBPM_BORDER_STYLE_3}</option>
+							<option class="inputbox2" value="double" <!-- IF RBPM_BORDER_STYLE == 'double' -->selected="selected"<!-- ENDIF -->>{L_ACP_RBPM_BORDER_STYLE_4}</option>
+							<option class="inputbox2" value="groove" <!-- IF RBPM_BORDER_STYLE == 'groove' -->selected="selected"<!-- ENDIF -->>{L_ACP_RBPM_BORDER_STYLE_5}</option>
+							<option class="inputbox2" value="ridge" <!-- IF RBPM_BORDER_STYLE == 'ridge' -->selected="selected"<!-- ENDIF -->>{L_ACP_RBPM_BORDER_STYLE_6}</option>
+							<option class="inputbox2" value="inset" <!-- IF RBPM_BORDER_STYLE == 'inset' -->selected="selected"<!-- ENDIF -->>{L_ACP_RBPM_BORDER_STYLE_7}</option>
+							<option class="inputbox2" value="outset" <!-- IF RBPM_BORDER_STYLE == 'outset' -->selected="selected"<!-- ENDIF -->>{L_ACP_RBPM_BORDER_STYLE_8}</option>
+						</select>
+				</span>
+			<!-- ELSE -->
+				<a class="prompt" href="#">
+					<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_BORDER_STYLE_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_BORDER_STYLE}</div>
+						</div>
+				</a>
+			<!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// BORDER STYLE END ///////////////////////////////////////////-->
+<!--//////////////////////////////// BORDER RADIUS BEGIN ////////////////////////////////////////-->
+<dl>
+	<dt>
+		<label for="rbpm_border_radius">{L_ACP_RBPM_BORDER_RADIUS}:</label>
+				<!-- IF RBPM_ENABLE and RBPM_INSC_ENABLE and RBPM_ENABLE_BACKGROUND --><div class="enabled">{L_ACP_ENABLED}</div><!-- ELSE --><div class="disabled">{L_ACP_DISABLED}</div><!-- ENDIF -->
+	</dt>
+		<dd><!-- IF RBPM_ENABLE and RBPM_INSC_ENABLE and RBPM_ENABLE_BACKGROUND -->
+			<a class="prompt" href="#">
+				<img class="icoimp" alt="{L_ACP_HELP}" src="./images/help.png" />
+					<div>{L_HELP_RBPM_BORDER_RADIUS_EXPLAIN}
+						<div class="top">{L_HELP_TITLE}</div>
+						<div class="top2">{L_ACP_RBPM_BORDER_RADIUS}</div>
+					</div>
+			</a>
+				<span class="inpsel">{RBPM_BORDER_RADIUS}</span>
+			<!-- ELSE -->
+				<a class="prompt" href="#">
+					<img class="icohlp" alt="{L_ACP_DIS}" src="./images/disable.gif" />
+						<div>{L_HELP_RBPM_NO_BORDER_RADIUS_EXPLAIN}
+							<div class="top">{L_HELP_TITLE}</div>
+							<div class="top2">{L_ACP_RBPM_BORDER_RADIUS}</div>
+						</div>
+				</a>
+			<!-- ENDIF -->
+		</dd>
+</dl>
+<!--//////////////////////////////// BORDER RADIUS END //////////////////////////////////////////-->
+</div>
+<!--//////////////////////////////// BACKGROUND/BORDER END //////////////////////////////////////-->
+<script src="style/js/activatables.js" type="text/javascript"></script>
+<script type="text/javascript">
+// <![CDATA[
+activatables('page', ['page-1', 'page-2', 'page-3', 'page-4', 'page-5']);
+// ]]>
+</script>
+<!--//////////////////////////////// SUBMIT & RESET BUTTONS BEGIN ///////////////////////////////-->
+<fieldset class="submit-buttons">
+	<input class="submit" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+	<input class="reset" type="reset" id="reset" name="reset" value="{L_RESET}" />
+	{S_FORM_TOKEN}
+</fieldset>
+<!--//////////////////////////////// SUBMIT & RESET BUTTONS END /////////////////////////////////-->
+</fieldset>
+<!-- BEGIN mods -->
+<div class="<!-- IF mods.S_UP_TO_DATE -->successbox<!-- ELSE -->errorbox<!-- ENDIF -->">
+	<p>{mods.UP_TO_DATE}</p>
+</div>
+<fieldset>
+	<legend>{mods.TITLE}</legend>
+		<dl>
+			<dt><label>{L_CURRENT_VERSION}</label></dt>
+			<dd><strong>{mods.CURRENT_VERSION}</strong></dd>
+		</dl>
+		<dl>
+			<dt><label>{L_LATEST_VERSION}</label></dt>
+			<dd><strong>{mods.LATEST_VERSION}</strong></dd>
+		</dl>
+<!-- IF not mods.S_UP_TO_DATE -->
+		<dl>
+			<dt><label>{L_DOWNLOAD_LATEST}</label></dt>
+			<dd><strong><a href="{mods.DOWNLOAD}">{L_DOWNLOAD} {mods.TITLE} {mods.LATEST_VERSION}</a></strong></dd>
+		</dl>
+		<dl>
+			<dt><label>{L_ANNOUNCEMENT_TOPIC}</label></dt>
+			<dd><strong><a href="{mods.ANNOUNCEMENT}">{L_RELEASE_ANNOUNCEMENT}</a></strong></dd>
+		</dl>
+<!-- ENDIF -->
+<br />
+<div class="panel">
+	<div class="inner">
+		<span class="corners-top"><span></span></span>
+			{L_ACP_RBPM_SIG_FOOTER} {L_ACP_RBPM_VERSION} {RBPM_VERSION}
+		<span class="corners-bottom"><span></span></span>
+	</div>
+</div>
+	</fieldset>
+<!-- END mods -->
+</form>
+<!-- INCLUDE overall_footer.html -->
